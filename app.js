@@ -157,10 +157,10 @@ app.post("/register", async (request, response) => {
           receipe WHERE added_by = '${dbUser.id}'`
       const dbResponse = await db.all(getUserQuery);
       console.log(dbResponse,'get recepie')
-      response.send(`Posted with ${dbUser.id}`);
+      response.send(dbResponse);
     } else {
       response.status = 400;
-      response.send("Failed to post");
+      response.send("Failed to Load");
     }
   });
 
